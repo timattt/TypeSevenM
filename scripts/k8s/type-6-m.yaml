@@ -17,6 +17,8 @@ spec:
           image: docker.io/timattt/type-6-m:latest
           imagePullPolicy: Always
           env:
+            - name: TYPE6_CLIENT_CORS_ALLOWED_ORIGIN
+              value: https://netmapa.online
             - name: TYPE6_ACTIVE_PROFILE
               value: "release"
             - name: TYPE6_DATABASE_USER
@@ -33,11 +35,3 @@ spec:
                 secretKeyRef:
                   name: type-6-basic-secrets
                   key: type_6_database_password
-          volumeMounts:
-            - name: secret-volume
-              mountPath: /etc/secrets
-              readOnly: true
-      volumes:
-        - name: secret-volume
-          secret:
-            secretName: type-6-basic-secret-files
