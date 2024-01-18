@@ -23,13 +23,13 @@ public class MetadataController {
 
     @GetMapping("/get")
     public ResponseEntity<Metadata> getUserMetadata(JwtAuthenticationToken token) {
-        int userId = (int) token.getTokenAttributes().get("id");
+        int userId = Integer.parseInt(token.getTokenAttributes().get("id").toString());
         return ResponseEntity.ok(metadataUserService.getMetadata(userId));
     }
 
     @PostMapping("/set")
     public ResponseEntity<?> setUserMetadata(JwtAuthenticationToken token, @RequestBody Metadata metadata) {
-        int userId = (int) token.getTokenAttributes().get("id");
+        int userId = Integer.parseInt(token.getTokenAttributes().get("id").toString());
         metadataUserService.setMetadata(userId, metadata);
         return ResponseEntity.ok().build();
     }
