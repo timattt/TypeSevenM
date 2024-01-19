@@ -3,6 +3,7 @@ package org.shlimtech.typesixm.service;
 import org.modelmapper.ModelMapper;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
 import org.shlimtech.typesixdatabasecommon.metadata.Metadata;
+import org.shlimtech.typesixdatabasecommon.model.User;
 import org.shlimtech.typesixdatabasecommon.repository.UserRepository;
 import org.shlimtech.typesixdatabasecommon.service.UserService;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,16 @@ public class MetadataUserService extends UserService {
     public MetadataUserService(UserRepository userRepository, ModelMapper modelMapper, MetadataManagerService metadataManagerService) {
         super(userRepository, modelMapper);
         this.metadataManagerService = metadataManagerService;
+    }
+
+    @Override
+    @Transactional
+    public UserDTO loadUser(int id) {
+        User user = userRepository.getReferenceById(id);
+        if (user.getMetadata() == null) {
+            user.setMetadata(metadataManagerService.generateMetadata());
+        }
+        return modelMapper.map(user, UserDTO.class);
     }
 
     @Transactional
