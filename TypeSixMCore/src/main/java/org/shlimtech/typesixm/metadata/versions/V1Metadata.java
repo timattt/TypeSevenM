@@ -26,6 +26,7 @@ public class V1Metadata implements VersionedMetadataBuilder {
         music.setEntries(List.of(new MetadataEntry("Классика"), new MetadataEntry("Попса")));
 
         metadata.setMetadataEntrySets(List.of(hobbies, music));
+        metadata.setSelectedUsers(List.of());
 
         return metadata;
     }
