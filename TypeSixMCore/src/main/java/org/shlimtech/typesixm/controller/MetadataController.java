@@ -8,12 +8,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/metadata")
 @RequiredArgsConstructor
 public class MetadataController {
 
     private final MetadataUserService metadataUserService;
+
+    @GetMapping("/check")
+    public ResponseEntity<?> checkToken() {
+        return ResponseEntity.ok(Map.of("active", true));
+    }
 
     @GetMapping("/user-info")
     public ResponseEntity<UserDTO> userInfo(JwtAuthenticationToken token) {
