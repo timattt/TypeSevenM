@@ -17,7 +17,7 @@ spec:
           image: docker.io/timattt/type-7-m:latest
           imagePullPolicy: Always
           env:
-            - name: TYPE6_CLIENT_CORS_ALLOWED_ORIGIN
+            - name: TYPE7_CLIENT_CORS_ALLOWED_ORIGIN
               value: https://mipt-match.ru
             - name: TYPE7_ACTIVE_PROFILE
               value: "release"
