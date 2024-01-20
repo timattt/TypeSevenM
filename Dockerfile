@@ -5,7 +5,7 @@ RUN mvn -f /app/pom.xml clean package -Dmaven.test.skip=true
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-COPY --from=builder /app/TypeSixMCore/target/*.jar /app/*.jar
+COPY --from=builder /app/TypeSevenMCore/target/*.jar /app/*.jar
 
 RUN mkdir -p /root/.postgresql
 RUN wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" --output-document /root/.postgresql/root.crt

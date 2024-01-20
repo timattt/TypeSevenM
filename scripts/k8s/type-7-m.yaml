@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: type-7-m
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: type-7-m
+  template:
+    metadata:
+      labels:
+        app: type-7-m
+    spec:
+      containers:
+        - name: type-7-m
+          image: docker.io/timattt/type-7-m:latest
+          imagePullPolicy: Always
+          env:
+            - name: TYPE6_CLIENT_CORS_ALLOWED_ORIGIN
+              value: https://mipt-match.ru
+            - name: TYPE7_ACTIVE_PROFILE
+              value: "release"
+            - name: TYPE6_DATABASE_USER
+              value: default-user
+            - name: TYPE7M_ISSUER_URL
+              value: http://10.96.141.57:443
+            - name: TYPE6_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: type-6-basic-secrets
+                  key: type_6_database_jdbc_url
+            - name: TYPE6_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: type-6-basic-secrets
+                  key: type_6_database_password

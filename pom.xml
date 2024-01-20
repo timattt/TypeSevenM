@@ -10,15 +10,15 @@
     </parent>
     <packaging>pom</packaging>
     <groupId>org.shlimtech</groupId>
-    <artifactId>TypeSixM</artifactId>
+    <artifactId>TypeSevenM</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>TypeSixM</name>
-    <description>TypeSixM</description>
+    <name>TypeSevenM</name>
+    <description>TypeSevenM</description>
     <properties>
         <java.version>17</java.version>
     </properties>
     <modules>
-        <module>TypeSixMCore</module>
+        <module>TypeSevenMCore</module>
         <module>TypeSixDataBaseCommon</module>
     </modules>
 </project>
