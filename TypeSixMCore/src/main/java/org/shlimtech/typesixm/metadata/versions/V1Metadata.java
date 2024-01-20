@@ -1,8 +1,8 @@
 package org.shlimtech.typesixm.metadata.versions;
 
-import org.shlimtech.typesixdatabasecommon.metadata.Metadata;
-import org.shlimtech.typesixdatabasecommon.metadata.MetadataEntry;
-import org.shlimtech.typesixdatabasecommon.metadata.MetadataEntrySet;
+import org.shlimtech.typesixm.metadata.Metadata;
+import org.shlimtech.typesixm.metadata.MetadataEntry;
+import org.shlimtech.typesixm.metadata.MetadataEntrySet;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

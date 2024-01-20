@@ -1,6 +1,6 @@
 package org.shlimtech.typesixm.metadata.versions;
 
-import org.shlimtech.typesixdatabasecommon.metadata.Metadata;
+import org.shlimtech.typesixm.metadata.Metadata;
 
 public interface VersionedMetadataBuilder {
 

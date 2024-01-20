@@ -2,40 +2,35 @@ package org.shlimtech.typesixm.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
-import org.shlimtech.typesixdatabasecommon.metadata.Metadata;
-import org.shlimtech.typesixm.service.MetadataUserService;
+import org.shlimtech.typesixdatabasecommon.service.UserService;
+import org.shlimtech.typesixm.dto.MetadataDTO;
+import org.shlimtech.typesixm.metadata.Metadata;
+import org.shlimtech.typesixm.service.MetadataService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/metadata")
 @RequiredArgsConstructor
 public class MetadataController {
 
-    private final MetadataUserService metadataUserService;
+    private final MetadataService metadataService;
+    private final UserService userService;
 
-    @GetMapping("/check")
-    public ResponseEntity<?> checkToken() {
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/user-info")
-    public ResponseEntity<UserDTO> userInfo(JwtAuthenticationToken token) {
-        UserDTO userDTO = metadataUserService.loadUser(Math.toIntExact((Long) token.getTokenAttributes().get("id")));
-        return ResponseEntity.ok(userDTO);
-    }
-
-    @GetMapping("/user-info/{id}")
-    public ResponseEntity<UserDTO> userInfo(@PathVariable int id) {
-        UserDTO userDTO = metadataUserService.loadUser(id);
-        return ResponseEntity.ok(userDTO);
+    @GetMapping("/get")
+    public ResponseEntity<?> userInfo(JwtAuthenticationToken token) {
+        UserDTO userDTO = userService.loadUser(Math.toIntExact((Long) token.getTokenAttributes().get("id")));
+        MetadataDTO metadataDTO = metadataService.loadUserMetadataDTO(userDTO.getId());
+        return ResponseEntity.ok(Map.of("user", userDTO, "metadata", metadataDTO));
     }
 
     @PostMapping("/set")
     public ResponseEntity<?> setUserMetadata(JwtAuthenticationToken token, @RequestBody Metadata metadata) {
         int userId = Integer.parseInt(token.getTokenAttributes().get("id").toString());
-        metadataUserService.setMetadata(userId, metadata);
+        metadataService.saveUserMetadata(userId, metadata);
         return ResponseEntity.ok().build();
     }
 
