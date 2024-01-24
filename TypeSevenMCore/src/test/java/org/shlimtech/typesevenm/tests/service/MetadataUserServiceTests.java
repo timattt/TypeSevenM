@@ -30,8 +30,9 @@ public class MetadataUserServiceTests extends BaseTest {
     @Test
     public void simpleMetadataCreationTest() {
         int id = insertTestUser();
-        metadataService.saveUserMetadata(id, Metadata.builder().version("v0").build());
-        Assert.isTrue(metadataService.loadUserMetadata(id).getVersion().equals("v0"), "incorrect metadata");
+        Metadata metadata = metadataService.generateMetadata();
+        metadataService.saveUserMetadata(id, metadata);
+        Assert.isTrue(metadataService.loadUserMetadata(id).getVersion().equals("v1"), "incorrect metadata");
     }
 
     @Test
@@ -49,7 +50,9 @@ public class MetadataUserServiceTests extends BaseTest {
     @Test
     public void metadataDTOTest() {
         int id = insertTestUser();
-        metadataService.saveUserMetadata(id, Metadata.builder().version("v0").selectedUsers(List.of(1)).build());
+        Metadata metadata = metadataService.generateMetadata();
+        metadata.setSelectedUsers(List.of(1));
+        metadataService.saveUserMetadata(id, metadata);
         MetadataDTO dto = metadataService.loadUserMetadataDTO(id);
         Assert.isTrue(dto.getSelectedUsers().size() == 1, "not mapped correctly");
     }
