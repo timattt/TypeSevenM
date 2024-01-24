@@ -2,7 +2,6 @@ package org.shlimtech.typesevenm.tests.service;
 
 import org.junit.jupiter.api.Test;
 import org.shlimtech.typesevendatabasecommon.dto.MetadataDTO;
-import org.shlimtech.typesevendatabasecommon.mapper.MetadataMapper;
 import org.shlimtech.typesevendatabasecommon.metadata.Metadata;
 import org.shlimtech.typesevendatabasecommon.service.MetadataService;
 import org.shlimtech.typesevenm.tests.BaseTest;
@@ -21,9 +20,6 @@ public class MetadataUserServiceTests extends BaseTest {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private MetadataMapper metadataMapper;
-
     private int insertTestUser() {
         userService.createOrComplementUser(UserDTO.builder().email("ggg@gmail.com").firstName("hhh").build());
         Assert.isTrue(userService.loadUser("ggg@gmail.com") != null, "must contains user");
@@ -34,7 +30,7 @@ public class MetadataUserServiceTests extends BaseTest {
     @Test
     public void simpleMetadataCreationTest() {
         int id = insertTestUser();
-        MetadataDTO metadata = metadataMapper.toDTO(metadataService.generateMetadata());
+        Metadata metadata = metadataService.generateMetadata();
         metadataService.saveUserMetadata(id, metadata);
         Assert.isTrue(metadataService.loadUserMetadata(id).getVersion().equals("v1"), "incorrect metadata");
     }
@@ -56,7 +52,7 @@ public class MetadataUserServiceTests extends BaseTest {
         int id = insertTestUser();
         Metadata metadata = metadataService.generateMetadata();
         metadata.setSelectedUsers(List.of(1));
-        metadataService.saveUserMetadata(id, metadataMapper.toDTO(metadata));
+        metadataService.saveUserMetadata(id, metadata);
         MetadataDTO dto = metadataService.loadUserMetadataDTO(id);
         Assert.isTrue(dto.getSelectedUsers().size() == 1, "not mapped correctly");
     }

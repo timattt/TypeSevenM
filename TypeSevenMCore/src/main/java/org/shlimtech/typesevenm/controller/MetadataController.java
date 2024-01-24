@@ -34,7 +34,7 @@ public class MetadataController {
     @PostMapping("/set")
     public ResponseEntity<?> setUserMetadata(JwtAuthenticationToken token, @RequestBody MetadataDTO metadata) {
         int userId = Integer.parseInt(token.getTokenAttributes().get("id").toString());
-        metadataService.saveUserMetadata(userId, metadata);
+        metadataService.saveUserMetadataDTO(userId, metadata);
         matchTasksService.createMatchTask(userId);
         return ResponseEntity.ok().build();
     }
