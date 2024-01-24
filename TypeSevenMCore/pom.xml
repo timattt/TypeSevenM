@@ -54,14 +54,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.shlimtech.common</groupId>
+            <groupId>org.shlimtech.type6common</groupId>
             <artifactId>TypeSixDataBaseCommon</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.shlimtech.common</groupId>
-            <artifactId>TypeSevenDatabaseCommon</artifactId>
+            <groupId>org.shlimtech.type7common</groupId>
+            <artifactId>TypeSevenDataBaseCommon</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

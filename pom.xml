@@ -20,6 +20,6 @@
     <modules>
         <module>TypeSevenMCore</module>
         <module>TypeSixDataBaseCommon</module>
-        <module>TypeSevenDatabaseCommon</module>
+        <module>TypeSevenDataBaseCommon</module>
     </modules>
 </project>
