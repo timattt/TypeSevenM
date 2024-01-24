@@ -1,6 +1,6 @@
-package org.shlimtech.typesevenm.metadata.versions;
+package org.shlimtech.typesevendatabasecommon.metadata.versions;
 
-import org.shlimtech.typesevenm.metadata.Metadata;
+import org.shlimtech.typesevendatabasecommon.metadata.Metadata;
 
 public interface VersionedMetadataBuilder {
 

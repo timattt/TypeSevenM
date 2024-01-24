@@ -1,15 +1,15 @@
-package org.shlimtech.typesevenm.service;
+package org.shlimtech.typesevendatabasecommon.service;
 
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.shlimtech.typesevendatabasecommon.dto.MetadataDTO;
+import org.shlimtech.typesevendatabasecommon.metadata.Metadata;
+import org.shlimtech.typesevendatabasecommon.metadata.versions.V1Metadata;
+import org.shlimtech.typesevendatabasecommon.metadata.versions.VersionedMetadataBuilder;
+import org.shlimtech.typesevendatabasecommon.model.Type7Metadata;
+import org.shlimtech.typesevendatabasecommon.repository.Type7MetadataRepository;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
 import org.shlimtech.typesixdatabasecommon.service.UserService;
-import org.shlimtech.typesevenm.dto.MetadataDTO;
-import org.shlimtech.typesevenm.metadata.Metadata;
-import org.shlimtech.typesevenm.metadata.versions.V1Metadata;
-import org.shlimtech.typesevenm.metadata.versions.VersionedMetadataBuilder;
-import org.shlimtech.typesevenm.model.Type7Metadata;
-import org.shlimtech.typesevenm.repository.Type7MetadataRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,12 +1,12 @@
 package org.shlimtech.typesevenm.tests.service;
 
 import org.junit.jupiter.api.Test;
+import org.shlimtech.typesevendatabasecommon.dto.MetadataDTO;
+import org.shlimtech.typesevendatabasecommon.metadata.Metadata;
+import org.shlimtech.typesevendatabasecommon.service.MetadataService;
+import org.shlimtech.typesevenm.tests.BaseTest;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
 import org.shlimtech.typesixdatabasecommon.service.UserService;
-import org.shlimtech.typesevenm.dto.MetadataDTO;
-import org.shlimtech.typesevenm.metadata.Metadata;
-import org.shlimtech.typesevenm.service.MetadataService;
-import org.shlimtech.typesevenm.tests.BaseTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 

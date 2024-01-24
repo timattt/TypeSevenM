@@ -1,11 +1,11 @@
-package org.shlimtech.typesevenm.dto;
+package org.shlimtech.typesevendatabasecommon.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
-import org.shlimtech.typesevenm.metadata.MetadataEntrySet;
+import org.shlimtech.typesevendatabasecommon.metadata.MetadataEntrySet;
 
 import java.util.List;
 

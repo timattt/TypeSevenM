@@ -1,6 +1,6 @@
-package org.shlimtech.typesevenm.repository;
+package org.shlimtech.typesevendatabasecommon.repository;
 
-import org.shlimtech.typesevenm.model.Type7Metadata;
+import org.shlimtech.typesevendatabasecommon.model.Type7Metadata;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,11 +1,11 @@
 package org.shlimtech.typesevenm.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.shlimtech.typesevendatabasecommon.dto.MetadataDTO;
+import org.shlimtech.typesevendatabasecommon.metadata.Metadata;
+import org.shlimtech.typesevendatabasecommon.service.MetadataService;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
 import org.shlimtech.typesixdatabasecommon.service.UserService;
-import org.shlimtech.typesevenm.dto.MetadataDTO;
-import org.shlimtech.typesevenm.metadata.Metadata;
-import org.shlimtech.typesevenm.service.MetadataService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package org.shlimtech.typesevenm.metadata;
+package org.shlimtech.typesevendatabasecommon.metadata;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

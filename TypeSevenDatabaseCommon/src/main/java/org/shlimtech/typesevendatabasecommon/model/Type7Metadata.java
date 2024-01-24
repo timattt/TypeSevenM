@@ -1,11 +1,11 @@
-package org.shlimtech.typesevenm.model;
+package org.shlimtech.typesevendatabasecommon.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import org.shlimtech.typesevenm.metadata.Metadata;
+import org.shlimtech.typesevendatabasecommon.metadata.Metadata;
 
 @Entity
 @Data
