@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.shlimtech.typesevendatabasecommon.dto.MetadataDTO;
 import org.shlimtech.typesevendatabasecommon.service.MetadataService;
+import org.shlimtech.typesevenm.dto.BioDTO;
 import org.shlimtech.typesevenm.service.MatchTasksService;
 import org.shlimtech.typesixdatabasecommon.dto.UserDTO;
 import org.shlimtech.typesixdatabasecommon.service.UserService;
@@ -36,6 +37,13 @@ public class MetadataController {
         int userId = Integer.parseInt(token.getTokenAttributes().get("id").toString());
         metadataService.saveUserMetadataDTO(userId, metadata);
         matchTasksService.createMatchTask(userId);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/set/bio")
+    public ResponseEntity<?> setBio(JwtAuthenticationToken token, @RequestBody BioDTO bioDTO) {
+        int userId = Integer.parseInt(token.getTokenAttributes().get("id").toString());
+        userService.setBio(userId, bioDTO.getBio());
         return ResponseEntity.ok().build();
     }
 
