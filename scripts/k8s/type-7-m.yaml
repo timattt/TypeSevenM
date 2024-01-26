@@ -18,7 +18,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: TYPE7D_HOST
-              value: http://10.96.216.217:443
+              value: http://10.96.243.38:443
             - name: TYPE7_CLIENT_CORS_ALLOWED_ORIGIN
               value: https://mipt-match.ru
             - name: TYPE7_ACTIVE_PROFILE
